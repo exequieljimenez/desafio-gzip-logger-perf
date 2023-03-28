@@ -203,6 +203,8 @@ app.get('/login-error', (req, res) => {
 })
 
 app.get('/info', compression(), (req, res) => {
+    console.log(`Argumentos de entrada: ${process.argv.slice(2)}\nSistema operativo: ${process.platform}\nVersión de node: ${process.version}\nMemoria total reservada: ${process.memoryUsage().rss}\nPath de ejecucion: ${process.cwd()}\nProcess Id: ${process.pid}\nCarpeta del proyecto: ${path.basename(__dirname)}\nNúmero de procesadores presentes en el servidor: ${numCores}`)
+    
     res.send(`<p>Argumentos de entrada: ${process.argv.slice(2)}</p><br><p>Sistema operativo: ${process.platform}</p><br><p>Versión de node: ${process.version}</p><br><p>Memoria total reservada: ${process.memoryUsage().rss}</p><br><p>Path de ejecucion: ${process.cwd()}</p><br><p>Process Id: ${process.pid}</p><br><p>Carpeta del proyecto: ${path.basename(__dirname)}</p><br><p>Número de procesadores presentes en el servidor: ${numCores}</p>`)
 })
 
